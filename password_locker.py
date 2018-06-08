@@ -30,5 +30,11 @@ class Userdata:
     def __init__(self, username,upass):
         self.username = username
         self.upass = upass
-    
+    def create_user():
+        print("Please enter Username and password to register\nusername:")
+        username=input()
+        print("Enter password:")
+        upass= getpass.getpass()
+        print("You entered:\n" +username +"\n" +upass)
+    create_user()
 
