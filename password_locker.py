@@ -1,12 +1,12 @@
 import secrets
 import string
+import getpass
 
 
 class Credentials:
     '''
     Class that generates new instances of credentials class
     '''
-    password_list = []
 
     def __init__(self, password):
         self.password = password
@@ -21,5 +21,14 @@ class Credentials:
         file.write("\n"+password)
         file.close()
         # print(password)
-    generate_password()
+    # generate_password()
+
+class Userdata:
+    '''
+    Class that generates new instances of userdata class
+    '''
+    def __init__(self, username,upass):
+        self.username = username
+        self.upass = upass
+    
 
