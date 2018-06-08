@@ -1,5 +1,3 @@
-import secrets
-import string
 
 
 class Credentials:
@@ -17,9 +15,7 @@ class Credentials:
         '''
         alphabet = string.ascii_letters + string.digits
         password = ''.join(secrets.choice(alphabet) for i in range(20))
-        file = open("password_keeper.txt", "a")
-        file.write("\n"+password)
-        file.close()
+        
         # print(password)
     generate_password()
 
