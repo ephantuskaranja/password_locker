@@ -4,6 +4,9 @@ import getpass
 
 
 def selector():
+    '''
+    function that controls the flow of the application
+    '''
     print("log-for registered users","new-for new user","genPass-for generate passwords","viewc-view credentials")
     code_selected = input("code_selected: ")
     if code_selected == "new":
