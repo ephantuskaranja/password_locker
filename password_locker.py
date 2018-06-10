@@ -19,7 +19,7 @@ def selector():
         selector()
     elif code_selected == "viewc":
         login()
-        selector()
+        # selector()
         credentials.show_generatedPass()
     else:
         print("illegal code input")
@@ -92,10 +92,11 @@ class Credentials:
     # generate_password()
 
     def show_generatedPass(self):
-        f = open('password_keeper.txt', 'r')
-        if f.mode == 'r':
-            contents = f.read()
-            print(contents)
+        if login()==True:
+            f = open('password_keeper.txt', 'r')
+            if f.mode == 'r':
+                contents = f.read()
+                print(contents)
 
 
 credentials = Credentials()
