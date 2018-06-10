@@ -8,16 +8,14 @@ def login():
     username = input('Please enter username: ')
     upass = getpass.getpass('Please enter password: ')
     udata = {username: upass}
-    print(udata)
     f = open('userdata.txt', 'r')
-    my_dict = eval(f.read())
-    print(my_dict)
-        # if my_data == udata:
-        #     print('correct credentials')
-        #     return True
-        # else:
-        #     print('incorrect credentials')
-        #     return False
+    my_data = eval(f.read())
+    if my_data == udata:
+        print('correct credentials')
+        return True
+    else:
+        print('incorrect credentials')
+        return False
 login()
 
 
