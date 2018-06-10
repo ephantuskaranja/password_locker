@@ -22,6 +22,9 @@ def selector():
 
 
 def login():
+    '''
+    function that enables access to the system
+    '''
     print('Logging in........')
     username = input('Please enter username: ')
     upass = getpass.getpass('Please enter password: ')
@@ -48,6 +51,9 @@ class Userdata:
         self.udata = udata
 
     def create_user():
+        '''
+        function that creates new users
+        '''
         print("Please enter Username and password to register\nusername:")
         username = input()
         print("Enter password:")
@@ -58,6 +64,9 @@ class Userdata:
         file.close()
 
     def datacheck():
+        '''
+        function that performs data check to see if user exists or not
+        '''
         existing = {'ephantus': 'karanja'}
         print("Please Enter username and then password")
         username_inputted = input()
