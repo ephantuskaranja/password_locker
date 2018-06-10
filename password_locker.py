@@ -23,7 +23,7 @@ def selector():
         credentials.show_generatedPass()
     else:
         print("illegal code input")
-
+        selector()
 
 
 def login():
@@ -37,22 +37,22 @@ def login():
     f = open('login.txt', 'r')
     my_data = eval(f.read())
     if my_data == udata:
-        print('correct credentials')
+        print('correct credentials: Your are now logged in')
         return True
     else:
         print('incorrect credentials')
         return False
 
 
-class Userdata:
+class Userdata(object):
     '''
     Class that generates new instances of userdata class
     '''
 
-    def __init__(self, username, upass, udata):
-        self.username = username
-        self.upass = upass
-        self.udata = udata
+    # def __init__(self, username, upass, udata):
+    #     self.username = username
+    #     self.upass = upass
+    #     self.udata = udata
 
     def create_user(self):
         '''
@@ -70,13 +70,14 @@ class Userdata:
 
 userdata = Userdata()
 
+
 class Credentials:
     '''
     Class that generates new instances of credentials class
     '''
 
-    def __init__(self, password):
-        self.password = password
+    # def __init__(self, password):
+    #     self.password = password
 
     def generate_password(self, password):
         '''
@@ -95,6 +96,7 @@ class Credentials:
         if f.mode == 'r':
             contents = f.read()
             print(contents)
+
 
 credentials = Credentials()
 selector()
