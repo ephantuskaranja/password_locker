@@ -8,7 +8,7 @@ def login():
     username = input('Please enter username: ')
     upass = getpass.getpass('Please enter password: ')
     udata = {username: upass}
-    f = open('userdata.txt', 'r')
+    f = open('login.txt', 'r')
     my_data = eval(f.read())
     if my_data == udata:
         print('correct credentials')
