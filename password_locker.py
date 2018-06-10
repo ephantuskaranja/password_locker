@@ -14,10 +14,11 @@ def selector():
         selector()
     elif code_selected == "log":
         login()
-        credential.generate_password()
-    elif calls == "viewc":
+        selector()
+    elif code_selected == "viewc":
         login()
-        credential.show_credentials()
+        selector()
+        credentials.show_credentials()
 
 
 
@@ -50,7 +51,7 @@ class Userdata:
         self.upass = upass
         self.udata = udata
 
-    def create_user():
+    def create_user(self):
         '''
         function that creates new users
         '''
@@ -63,7 +64,7 @@ class Userdata:
         file.write("\n" + str(udata))
         file.close()
 
-    def datacheck():
+    def datacheck(self):
         '''
         function that performs data check to see if user exists or not
         '''
@@ -76,7 +77,8 @@ class Userdata:
             print("login successful")
         else:
             print("Please register")
-    
+
+userdata = Userdata()
 
 
 
@@ -89,7 +91,7 @@ class Credentials:
     def __init__(self, password):
         self.password = password
 
-    def generate_password():
+    def generate_password(self):
         '''
         function generating passwords
         '''
@@ -100,4 +102,6 @@ class Credentials:
         file.close()
         return(alphabet, password)
     # generate_password()
+
+credentials = Credentials()
 
