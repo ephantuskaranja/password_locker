@@ -20,14 +20,15 @@ def selector():
         selector()
 
 
-def access_controller(self):
+def access_controller():
     '''
     Gives options after login function
     '''
-    print('genPass-for generate passwords or viewc-view credentials')
+    print('genpass-for generate passwords or viewc-view credentials')
     access_call = input()
     if access_call == 'genpass':
         credentials.generate_password()
+        print('generated new password')
     elif access_call == 'viewc':
         credentials.show_generatedPass()
     else:
@@ -46,10 +47,11 @@ def login():
     my_data = eval(f.read())
     if my_data == udata:
         print('correct credentials: Your are now logged in')
-        return True
+        access_controller()
+        # return True
     else:
         print('incorrect credentials')
-        return False
+        # return False
 
 
 class Userdata(object):
@@ -74,7 +76,7 @@ class Userdata(object):
         file = open("userdata.txt", "a")
         file.write("\n" + str(udata))
         file.close()
-
+    login()
 
 userdata = Userdata()
 
@@ -91,20 +93,20 @@ class Credentials:
         '''
         function generating passwords
         '''
+        print('input the account to generate for')
+        accountFor=input()
         alphabet = string.ascii_letters + string.digits
         password = ''.join(secrets.choice(alphabet) for i in range(20))
         file = open("password_keeper.txt", "a")
-        file.write("\n"+password)
+        file.write("\n"+password +'-'+accountFor)
         file.close()
-        # return(alphabet, password)
     # generate_password()
 
     def show_generatedPass(self):
-        if login()==True:
-            f = open('password_keeper.txt', 'r')
-            if f.mode == 'r':
-                contents = f.read()
-                print(contents)
+        f = open('password_keeper.txt', 'r')
+        if f.mode == 'r':
+            contents = f.read()
+            print(contents)
 
 
 credentials = Credentials()
