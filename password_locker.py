@@ -1,6 +1,7 @@
 import secrets
 import string
 import getpass
+import pyperclip
 
 
 def selector():
@@ -12,7 +13,7 @@ def selector():
     selector_call = input()
     if selector_call == "new":
         userdata.create_user()
-        selector()
+        # selector()
     elif selector_call == "log":
         login()
     else:
@@ -22,7 +23,7 @@ def selector():
 
 def access_controller():
     '''
-    Gives options after login function
+    Gives options after login function is True
     '''
     print('genpass-for generate passwords or viewc-view credentials')
     access_call = input()
@@ -46,12 +47,20 @@ def login():
     if str(udata) in open('login.txt').read():
         # print("true")
         print(f'correct credentials: Your are now logged in as {username}')
-        # access_controller()
+        if True:
+            access_controller()
     else:
         print('incorrect credentials')
-login()
 
-class Userdata(object):
+def copy_credentials():
+    print("please specify account name to copy password:")
+    name=input()
+    if name in open('password_keeper.txt').read():
+        pyperclip.copy()
+
+
+
+class Userdata:
     '''
     Class that generates new instances of userdata class
     '''
@@ -68,36 +77,37 @@ class Userdata(object):
         file = open("login.txt", "a")
         file.write("\n" + str(udata))
         file.close()
-    login()
+        print(f"{username} created")
+    # login()
 
 
-userdata = Userdata()
+# userdata = Userdata()
 
 
-class Credentials:
-    '''
-    Class that generates new instances of credentials class
-    '''
+# class Credentials:
+#     '''
+#     Class that generates new instances of credentials class
+#     '''
 
-    def generate_password(self):
-        '''
-        function generating passwords
-        '''
-        print('input the account to generate for')
-        accountFor = input()
-        alphabet = string.ascii_letters + string.digits
-        password = ''.join(secrets.choice(alphabet) for i in range(20))
-        file = open("password_keeper.txt", "a")
-        file.write("\n"+password + '-'+accountFor)
-        file.close()
-    # generate_password()
+#     def generate_password(self):
+#         '''
+#         function generating passwords
+#         '''
+#         print('input the account to generate for')
+#         accountFor = input()
+#         alphabet = string.ascii_letters + string.digits
+#         password = ''.join(secrets.choice(alphabet) for i in range(20))
+#         file = open("password_keeper.txt", "a")
+#         file.write("\n"+password + '-'+accountFor)
+#         file.close()
+#     # generate_password()
 
-    def show_generatedPass(self):
-        f = open('password_keeper.txt', 'r')
-        if f.mode == 'r':
-            contents = f.read()
-            print(contents)
+#     def show_generatedPass(self):
+#         f = open('password_keeper.txt', 'r')
+#         if f.mode == 'r':
+#             contents = f.read()
+#             print(contents)
 
 
-credentials = Credentials()
-selector()
+# credentials = Credentials()
+# selector()

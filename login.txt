@@ -1,3 +1,4 @@
 {'ephan': 'slogan'}
 {'ephantus': 'slogani'}
 {'ephani': 'sloga'}
+{'sophia': 'sophia'}
