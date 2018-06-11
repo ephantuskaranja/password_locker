@@ -33,7 +33,7 @@ def access_controller():
         credentials.show_generatedPass()
     else:
         print('illegal input')
-        
+
 
 def login():
     '''
@@ -43,26 +43,18 @@ def login():
     username = input('Please enter username: ')
     upass = getpass.getpass('Please enter password: ')
     udata = {username: upass}
-    f = open('login.txt', 'r')
-    my_data = eval(f.read())
-    if my_data == udata:
-        print('correct credentials: Your are now logged in')
-        access_controller()
-        # return True
+    if str(udata) in open('login.txt').read():
+        # print("true")
+        print(f'correct credentials: Your are now logged in as {username}')
+        # access_controller()
     else:
         print('incorrect credentials')
-        # return False
-
+login()
 
 class Userdata(object):
     '''
     Class that generates new instances of userdata class
     '''
-
-    # def __init__(self, username, upass, udata):
-    #     self.username = username
-    #     self.upass = upass
-    #     self.udata = udata
 
     def create_user(self):
         '''
@@ -73,10 +65,11 @@ class Userdata(object):
         print("Enter password:")
         upass = getpass.getpass()
         udata = {username: upass}
-        file = open("userdata.txt", "a")
+        file = open("login.txt", "a")
         file.write("\n" + str(udata))
         file.close()
     login()
+
 
 userdata = Userdata()
 
@@ -86,19 +79,16 @@ class Credentials:
     Class that generates new instances of credentials class
     '''
 
-    # def __init__(self, password):
-    #     self.password = password
-
     def generate_password(self):
         '''
         function generating passwords
         '''
         print('input the account to generate for')
-        accountFor=input()
+        accountFor = input()
         alphabet = string.ascii_letters + string.digits
         password = ''.join(secrets.choice(alphabet) for i in range(20))
         file = open("password_keeper.txt", "a")
-        file.write("\n"+password +'-'+accountFor)
+        file.write("\n"+password + '-'+accountFor)
         file.close()
     # generate_password()
 
