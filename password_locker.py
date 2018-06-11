@@ -8,23 +8,31 @@ def selector():
     function that controls the flow of the application
     '''
     print('please use the codes below to continue:')
-    print("log-for registered users\n", "\nnew-for new user\n",
-          "\ngenPass-for generate passwords\n", "\nviewc-view credentials")
-    code_selected = input("code_selected: ")
-    if code_selected == "new":
+    print("log-for registered users\n", "\nnew-for new user\n")
+    selector_call = input()
+    if selector_call == "new":
         userdata.create_user()
         selector()
-    elif code_selected == "log":
+    elif selector_call == "log":
         login()
-        selector()
-    elif code_selected == "viewc":
-        login()
-        # selector()
-        credentials.show_generatedPass()
     else:
         print("illegal code input")
         selector()
 
+
+def access_controller(self):
+    '''
+    Gives options after login function
+    '''
+    print('genPass-for generate passwords or viewc-view credentials')
+    access_call = input()
+    if access_call == 'genpass':
+        credentials.generate_password()
+    elif access_call == 'viewc':
+        credentials.show_generatedPass()
+    else:
+        print('illegal input')
+        
 
 def login():
     '''
@@ -79,7 +87,7 @@ class Credentials:
     # def __init__(self, password):
     #     self.password = password
 
-    def generate_password(self, password):
+    def generate_password(self):
         '''
         function generating passwords
         '''
