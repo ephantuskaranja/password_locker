@@ -52,11 +52,6 @@ def login():
     else:
         print('incorrect credentials')
 
-def copy_credentials():
-    print("please specify account name to copy password:")
-    name=input()
-    if name in open('password_keeper.txt').read():
-        pyperclip.copy()
 
 
 
@@ -81,33 +76,35 @@ class Userdata:
     # login()
 
 
-# userdata = Userdata()
+userdata = Userdata()
 
 
-# class Credentials:
-#     '''
-#     Class that generates new instances of credentials class
-#     '''
+class Credentials:
+    '''
+    Class that generates new instances of credentials class
+    '''
 
-#     def generate_password(self):
-#         '''
-#         function generating passwords
-#         '''
-#         print('input the account to generate for')
-#         accountFor = input()
-#         alphabet = string.ascii_letters + string.digits
-#         password = ''.join(secrets.choice(alphabet) for i in range(20))
-#         file = open("password_keeper.txt", "a")
-#         file.write("\n"+password + '-'+accountFor)
-#         file.close()
-#     # generate_password()
+    def generate_password(self):
+        '''
+        function generating passwords
+        '''
+        print('input the account to generate for')
+        accountFor = input()
+        alphabet = string.ascii_letters + string.digits
+        password = ''.join(secrets.choice(alphabet) for i in range(20))
+        password_list=[password, accountFor]
+        file = open("password_keeper.txt", "a")
+        # file.write("\n"+password + '-'+accountFor)
+        file.write("\n"+ str(password_list))
+        file.close()
+    # generate_password()
 
-#     def show_generatedPass(self):
-#         f = open('password_keeper.txt', 'r')
-#         if f.mode == 'r':
-#             contents = f.read()
-#             print(contents)
+    def show_generatedPass(self):
+        f = open('password_keeper.txt', 'r')
+        if f.mode == 'r':
+            contents = f.read()
+            print(contents)
 
 
-# credentials = Credentials()
-# selector()
+credentials = Credentials()
+selector()
