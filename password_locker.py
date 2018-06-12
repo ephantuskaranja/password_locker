@@ -91,10 +91,9 @@ class Credentials:
         accountFor = input()
         alphabet = string.ascii_letters + string.digits
         password = ''.join(secrets.choice(alphabet) for i in range(20))
-        password_list=[password, accountFor]
         file = open("password_keeper.txt", "a")
-        # file.write("\n"+password + '-'+accountFor)
-        file.write("\n"+ str(password_list))
+        file.write("\n"+ accountFor+':'+password)
+        print(f"password for account {accountFor} generated")
         file.close()
     # generate_password()
 
