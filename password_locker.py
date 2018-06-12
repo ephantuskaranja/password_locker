@@ -54,7 +54,6 @@ def login():
 
 
 
-
 class Userdata:
     '''
     Class that generates new instances of userdata class
@@ -105,6 +104,19 @@ class Credentials:
             contents = f.read()
             print(contents)
 
-
+    def copy_credentials(self):
+            print("please specify account name to copy password:")
+            name=input()
+            f =  open ('password_keeper.txt', 'r')
+            for line in f.readlines():
+                tag, key = line.strip().split(":")
+                if (name in tag) :
+                    key = key.strip()
+                    print(key)
+                    pyperclip.copy(key)
+                    print(f"password for account {name} copied")
+                    return True
+            
+    # copy_credentials()
 credentials = Credentials()
 selector()
