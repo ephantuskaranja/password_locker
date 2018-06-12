@@ -105,17 +105,20 @@ class Credentials:
             print(contents)
 
     def copy_credentials(self):
-            print("please specify account name to copy password:")
-            name=input()
-            f =  open ('password_keeper.txt', 'r')
-            for line in f.readlines():
-                tag, key = line.strip().split(":")
-                if (name in tag) :
-                    key = key.strip()
-                    print(key)
-                    pyperclip.copy(key)
-                    print(f"password for account {name} copied")
-                    return True
+        '''
+        function copies passwords for account to piperclip
+        '''
+        print("please specify account name to copy password:")
+        name=input()
+        f =  open ('password_keeper.txt', 'r')
+        for line in f.readlines():
+            tag, key = line.strip().split(":")
+            if (name in tag) :
+                key = key.strip()
+                print(key)
+                pyperclip.copy(key)
+                print(f"password for account {name} copied")
+                return True
             
     # copy_credentials()
 credentials = Credentials()
