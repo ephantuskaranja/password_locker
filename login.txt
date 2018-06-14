@@ -2,3 +2,6 @@
 {'ephantus': 'slogani'}
 {'ephani': 'sloga'}
 {'sophia': 'sophia'}
+{'karanjus': 'karanjus'}
+{'mbugus': 'mbugus'}
+{'karambus': 'karambus'}

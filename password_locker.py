@@ -40,7 +40,7 @@ def access_controller():
             credentials.copy_credentials()
          
         else:
-            print('thanks for your time.your are exiting now')
+            print('thanks for your time.your are now exiting')
             print('*'*30)
             exit
     else:
@@ -83,8 +83,15 @@ class Userdata:
         file = open("login.txt", "a")
         file.write("\n" + str(udata))
         file.close()
-        print(f"{username} created")
-    # login()
+        print(f"successfully created account for {username}")
+        print('want to continue? y or n')
+        opt=input().lower()
+        if opt == 'y':
+            print('please select log for login') 
+            login()
+        else:
+            print('thanks for registering.you can login later')
+            exit
 
 
 userdata = Userdata()
@@ -99,7 +106,7 @@ class Credentials:
         '''
         function generating passwords
         '''
-        print('input the accountFor+username to generate password.(dont space)')
+        print('input the accountFor+username to generate password.(don\'t space)')
         accountFor = input()
         alphabet = string.ascii_letters + string.digits
         password = ''.join(secrets.choice(alphabet) for i in range(20))
@@ -110,7 +117,7 @@ class Credentials:
     # generate_password()
 
     def show_generatedPass(self):   
-        inputted_username = input('Please enter username:').lower()
+        inputted_username = input('Please enter username+accountFor:').lower()
         with open('password_keeper.txt') as f:
             for line in f:
                 if inputted_username in line:
