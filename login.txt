@@ -5,3 +5,4 @@
 {'karanjus': 'karanjus'}
 {'mbugus': 'mbugus'}
 {'karambus': 'karambus'}
+{'kare': 'kare'}

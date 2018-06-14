@@ -86,8 +86,7 @@ class Userdata:
         print(f"successfully created account for {username}")
         print('want to continue? y or n')
         opt=input().lower()
-        if opt == 'y':
-            print('please select log for login') 
+        if opt == 'y': 
             login()
         else:
             print('thanks for registering.you can login later')
@@ -106,7 +105,7 @@ class Credentials:
         '''
         function generating passwords
         '''
-        print('input the accountFor+username to generate password.(don\'t space)')
+        print('input the username+accountFor to generate password.(don\'t space)')
         accountFor = input()
         alphabet = string.ascii_letters + string.digits
         password = ''.join(secrets.choice(alphabet) for i in range(20))
@@ -122,6 +121,9 @@ class Credentials:
             for line in f:
                 if inputted_username in line:
                     print(line)
+                    break
+            else:
+                print('doesn\'t exists')
     # show_generatedPass()
         
     def copy_credentials(self):
