@@ -12,7 +12,7 @@ class Controllers():
         '''
         print('please use the codes below to continue:')
         print("log-for registered users\n", "\nnew-for new user\n")
-        selector_call = input()
+        selector_call = str(input())
         if selector_call == "new":
            password_locker.userdata.create_user()
             # selector()
@@ -28,7 +28,7 @@ class Controllers():
         Gives options after login function is True
         '''
         print('genpass-for generate passwords or viewc-view saved credentials')
-        access_call = input()
+        access_call = str(input())
         if access_call == 'genpass':
             password_locker.credentials.generate_password()
             print("*"*35)
@@ -54,7 +54,7 @@ class Controllers():
         function that enables access to the system
         '''
         print('Logging in........')
-        username = input('Please enter username: ')
+        username = str(input('Please enter username: '))
         upass = getpass.getpass('Please enter password: ')
         udata = {username: upass}
         if str(udata) in open('login.txt').read():
@@ -66,4 +66,4 @@ class Controllers():
         else:
             print('incorrect credentials')
 
-controllers= Controllers()
+controllers = Controllers()

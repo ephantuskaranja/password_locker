@@ -6,3 +6,4 @@
 {'mbugus': 'mbugus'}
 {'karambus': 'karambus'}
 {'kare': 'kare'}
+{'karius': 'karius'}
