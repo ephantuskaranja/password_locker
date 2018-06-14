@@ -25,13 +25,24 @@ def access_controller():
     '''
     Gives options after login function is True
     '''
-    print('genpass-for generate passwords or viewc-view credentials')
+    print('genpass-for generate passwords or viewc-view saved credentials')
     access_call = input()
     if access_call == 'genpass':
         credentials.generate_password()
-        print('generated new password')
+        print("*"*35)
+        print('to continue, choose option')
+        access_controller()
     elif access_call == 'viewc':
         credentials.show_generatedPass()
+        print("copy credentials?:y or n")
+        called = input().lower()
+        if called == 'y':
+            credentials.copy_credentials()
+         
+        else:
+            print('thanks for your time.your are exiting now')
+            print('*'*30)
+            exit
     else:
         print('illegal input')
 
@@ -47,6 +58,7 @@ def login():
     if str(udata) in open('login.txt').read():
         # print("true")
         print(f'correct credentials: Your are now logged in as {username}')
+        print('*'*30)
         if True:
             access_controller()
     else:
@@ -87,7 +99,7 @@ class Credentials:
         '''
         function generating passwords
         '''
-        print('input the account to generate for')
+        print('input the accountFor+username to generate password.(dont space)')
         accountFor = input()
         alphabet = string.ascii_letters + string.digits
         password = ''.join(secrets.choice(alphabet) for i in range(20))
@@ -97,12 +109,14 @@ class Credentials:
         file.close()
     # generate_password()
 
-    def show_generatedPass(self):
-        f = open('password_keeper.txt', 'r')
-        if f.mode == 'r':
-            contents = f.read()
-            print(contents)
-
+    def show_generatedPass(self):   
+        inputted_username = input('Please enter username:').lower()
+        with open('password_keeper.txt') as f:
+            for line in f:
+                if inputted_username in line:
+                    print(line)
+    # show_generatedPass()
+        
     def copy_credentials(self):
         '''
         function copies passwords for account to piperclip
@@ -114,11 +128,11 @@ class Credentials:
             tag, key = line.strip().split(":")
             if (name in tag) :
                 key = key.strip()
-                print(key)
+                # print(key)
                 pyperclip.copy(key)
                 print(f"password for account {name} copied")
                 return True
-            
+
     # copy_credentials()
 credentials = Credentials()
 selector()
