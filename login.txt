@@ -7,3 +7,9 @@
 {'karambus': 'karambus'}
 {'kare': 'kare'}
 {'karius': 'karius'}
+
+{'newto': '1234'}
+{'karan': '1234'}
+{'fgh': '123'}
+{'bnm': '123'}
+{'ngt': '123'}
