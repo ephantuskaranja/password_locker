@@ -2,9 +2,6 @@ import secrets
 import string
 import getpass
 import pyperclip
-import controllers
-import pyperclip
-
 
 
 
@@ -49,8 +46,9 @@ class Credentials:
         '''
         print('input the username+accountFor to generate password.(don\'t space)')
         accountFor = str(input())
+        cnt = int(input('Please enter length of password:'))
         alphabet = string.ascii_letters + string.digits
-        password = ''.join(secrets.choice(alphabet) for i in range(20))
+        password = ''.join(secrets.choice(alphabet) for i in range(cnt))
         file = open("password_keeper.txt", "a")
         file.write("\n" + accountFor+':'+password)
         print(f"password for account {accountFor} generated")
@@ -154,3 +152,4 @@ class Controllers():
             print('incorrect credentials')
 
 controllers = Controllers()
+controllers.selector()
