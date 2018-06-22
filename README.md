@@ -12,10 +12,9 @@ This app help users to generate passwords and save them for later reference. The
 
 
 ## Cloning this repo
-    1. Install python3.6, flask, pip
+    1. Install python3.6
     2. clone this repo
-    3. create a Virtual environment
-    4. Run control.py on console 
+    3. Run This:`python3.6 control.py` on console to launch the application. 
 ## Known Bugs
     No bugs so far. If found, email me at ephantusslogan@gmail.com
 

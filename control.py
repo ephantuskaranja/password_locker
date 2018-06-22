@@ -129,7 +129,7 @@ class Controllers():
             else:
                 print('thanks for your time.your are now exiting')
                 print('*'*30)
-                exit
+                exit()
         else:
             print('illegal input')
 
